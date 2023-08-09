@@ -1,0 +1,6 @@
+<form th:action="@{/saveSearchUserStories}" method="post">
+    <label for="queryUsers">Query for Hacker News Username:</label>
+    <input type="text" id="queryUsers" name="queryUsers" th:value="${queryUsers}" />
+
+    <button type="submit">Search</button>
+</form>

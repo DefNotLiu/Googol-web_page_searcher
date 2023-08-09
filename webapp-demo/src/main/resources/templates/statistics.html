@@ -1,0 +1,18 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Statistics</title>
+</head>
+<body>
+    <h1>Statistics</h1>
+    <br/>
+    <a>Number of Downloaders: 1</a>
+    <a>Number of Barrels: 1</a>
+    <h3>Top 10 Queries:</h3>
+    <ul>
+        <th:block th:each="query, queryIndex : ${orderedQueries}" th:if="${queryIndex.index lt 10}">
+            <li th:text="${query}"></li>
+        </th:block>
+    </ul>
+</body>
+
+<a th:href="@{/}">Home</a>

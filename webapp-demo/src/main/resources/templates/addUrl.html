@@ -1,0 +1,6 @@
+<form th:action="@{/saveUrl}" method="post">
+    <label for="url">Url:</label>
+    <input type="text" id="url" name="url" th:value="${url}" />
+
+    <button type="submit">Submit</button>
+</form>

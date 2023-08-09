@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Googol: Definitely not google</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    <a href="details.html" th:href="@{http://localhost:8080/googol/hellofromservlet.html}">twice</a>
+
+    <a href="details.html" th:href="${completeurl}">thrice</a>
+
+    <a href="details.html" th:href="@{/googol/urls.html}">come back</a>
+
+    <a href="details.html" th:href="@{/greeting(name=${thename})}">greeting</a>
+</body>
+</html>

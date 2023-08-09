@@ -1,0 +1,12 @@
+<form th:object="${user}" method="post">
+    <div="form-row">
+        <div>
+            <label>Username</label>
+            <input type="text" th:field="*{username}">
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="text" th:field="*{password}">
+        </div>
+    <button type="submit">REGISTER</button>
+</form>

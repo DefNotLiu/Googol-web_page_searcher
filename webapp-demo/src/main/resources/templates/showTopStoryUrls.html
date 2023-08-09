@@ -1,0 +1,6 @@
+<h1>Urls found</h1>
+    <div th:each="urls : ${topStoryUrls}">
+        <a th:href="${urls}" th:text="${urls}"> </a>
+    </div>
+
+<a th:href="@{/}">Home</a>

@@ -1,0 +1,114 @@
+<style>
+    .classTmp:first-child{
+        margin-top: 10px;
+        
+    }
+    #load-more-btn{
+        position: relative;
+        left: 47%;
+    }
+    button{
+        display: inline-block;
+        outline: none;
+        cursor: pointer;
+        padding: 0 16px;
+        background-color: #0070d2;
+        border-radius: 0.25rem;
+        border: 1px solid #0070d2;
+        color: #fff;
+        font-size: 13px;
+        line-height: 30px;
+        font-weight: 400;
+        text-align: center;
+    }
+    button:hover {
+        background-color: #005fb2;
+        border-color: #005fb2;
+    }
+    a{
+        color: #0056b8;
+        text-decoration: none;
+    }
+    a:hover{
+        color: #bbb809;
+        text-decoration: underline;
+    }
+</style>
+
+<body>
+    <h1>Search results</h1>
+    <div style="font-size: large;" th:each="result, iterStat : ${searchResults}">
+        <table style="border-collapse: collapse; width: 100%;">
+            <td style="border:1px solid #dddddd; text-align: left; padding: 8px; width: 100%; margin-bottom: 100px;">
+                <h2 th:text="${result.title} ?: 'UNKNOWN'" /></h2>
+                <a th:href="${result.url}" th:text="${result.url}"></a>
+                <br/>
+                <br/>
+                <span th:text="${result.citations} ?: 'UNKNOWN'" /></span>
+                <br/>
+                <br/>
+                <button class="toggle-btn">Toggle URLs</button>
+                <div class="urls-container" style="font-size: medium; display: none;">
+                    <div class="classTmp" style = "margin-bottom: 5px; " th:each="pointedUrl : ${result.listUrls}">
+                        <a th:href="${pointedUrl}" th:text="${pointedUrl}"> </a>
+                    </div>
+                </div>
+            </td>
+        </table>
+    </div>
+    <br>
+    <button id="load-more-btn">Load More</button>
+    <br>
+    <br>
+    <a th:href="@{/}">Home</a>
+
+    
+
+    <script>
+        const toggleBtns = document.querySelectorAll('.toggle-btn');
+        const results = document.querySelectorAll('div[style="font-size: large;"]');
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        let visibleResults = 10;
+        let totalResults = results.length;
+
+        function toggleResults() {
+            results.forEach((result, index) => {
+                if (index < visibleResults) {
+                    result.style.display = 'block';
+                } else {
+                    result.style.display = 'none';
+                }
+            });
+        }
+
+        function toggleUrls() {
+            toggleBtns.forEach(btn => {
+                //espera un click
+                btn.addEventListener('click', () => {
+                    //proxima na lista, lista é um so elemento
+                    const urlsContainer = btn.nextElementSibling;
+                    if (urlsContainer.style.display === 'none') {
+                        urlsContainer.style.display = 'block';
+                        
+                    } else {
+                        urlsContainer.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        function loadMore() {
+            visibleResults += 10;
+            if (visibleResults >= totalResults) {
+                loadMoreBtn.style.display = 'none';
+            }
+            toggleResults();
+        }
+
+        //mesmo caso de cima, load more só é chamada uma vez, não preciso de recursão
+        loadMoreBtn.addEventListener('click', loadMore);
+
+        toggleResults();
+        toggleUrls();
+    </script>
+</body>

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Googol: Definitely not google</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-height: 100vh;
+            font-family: Hack, monospace;
+        }
+        
+        nav {
+            margin: 25px;
+            padding: 16px;
+        }
+        nav .menuItems {
+            list-style: none;
+            display: flex;
+        }
+        nav .menuItems li {
+            margin: 50px;
+        }
+        nav .menuItems li a {
+            text-decoration: none;
+            color: #585858;
+            font-size: 22px;
+            font-weight: 400;
+            transition: all 0.5s ease-in-out;
+            position: relative;
+            text-transform: uppercase;
+        }
+        nav .menuItems li a::before {
+            content: attr(data-item);
+            transition: 0.5s;
+            color: #15d465;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 0;
+            overflow: hidden;
+        }
+        nav .menuItems li a:hover::before {
+            width: 100%;
+            transition: all 0.5s ease-in-out;
+        }
+
+        img {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        ul{
+            list-style-type: none;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    
+    <img th:src="@{/R2.png}" style="width:35%;">
+    <nav class = "navTmp">
+        <ul class="menuItems">
+            <li><a href="details.html" th:href="@{/create-user}" data-item="Register">Register</a></li>
+
+            <li><a href="details.html" th:href="@{/login}" data-item="Login">Login</a></li>
+
+            <li><a href="details.html" th:href="@{/addUrl}" data-item="Add Url">Add Url</a></li>
+
+            <li><a href="details.html" th:href="@{/search}" data-item="Search">Search</a></li>
+
+            <li><a th:href="@{/searchTopStories}" data-item="Search Top Stories">Search Top Stories</a></li>
+
+            <li><a th:href="@{/searchUserStories}" data-item="Search User Stories">Search User Stories</a></li>
+
+            <li><a th:href="@{/statistics}"  data-item="Statistics">Statistics</a></li>
+            <div class="ponto"></div>
+        </ul>
+    </nav>
+
+    <!--a href="details.html" th:href="@{/greeting(name=${thename})}">greeting</a></li>-->
+</body>
+</html>

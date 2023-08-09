@@ -1,0 +1,30 @@
+Adicionar jsoup na dependencia no referenced libraries
+Citações->tirar inicio de body
+Barrels e downloaders dinamico, manter numero minimo de downloaders
+Guardar numeros de downloaders
+
+DownloadToBarrelsFragmented = "fragmentedPacket | size; " + "fragIndex | index; " + "type | barrelInformation; " + " + "msgIndex | " + msgIndex + "; " + 
+"originThread | " + threadName + "; " + "url_list | " + listUrls.size() + "; " + 
+"plain_text | " + words.size() + "; " +//header + "url | " + this.URL + "; " + 
+"title | " + this.title + "; " + "citation | " + this.citations + ";" + listUrlsTmp + wordsTmp;
+
+DownloadToBarrels = "type | barrelInformation; " + "msgIndex | " + msgIndex + "; " + "originThread | " + threadName + "; " +
+        "url_list | " + listUrls.size() + "; " + "plain_text | " + words.size() + "; " +//header
+        "url | " + this.URL + "; " + "title | " + this.title + "; " + "citation | " + this.citations + ";" + listUrlsTmp + wordsTmp;
+
+resend = "type | barrelInformationResend; index | " + i + ";"
+
+AckDownloadToBarrels ="type | barrelInformationAck; " + "msgIndex | " + msgIndex + ";"
+
+CheckIfUrlExist = "type | checkExist; " + "originThread | " + threadIndex + "; " + "url | " + Url + ";";
+
+AnswerUrlExist = "type | checkExistAns; " + "destinationThread | " + threadIndex + "; " + "ans | " + answer + ";";
+
+TellBarrelNoOfDownloaders = "type | numberOfDownloaders; " + "value | " + nos + ";"
+
+***parsing das mensagens
+***rmi devolver de nº de downloaders e de barrels
+***mostrar os resultados por revelancia e links a apontar para eles
+***rmi inserir url no downloader
+
+//tratar de receber o resender no downloader

@@ -1,0 +1,6 @@
+<h1>Urls found from user <strong th:text="${queryUsers}"></strong></h1>
+    <div th:each="urls : ${userStoryUrls}">
+        <a th:href="${urls}" th:text="${urls}"> </a>
+    </div>
+
+<a th:href="@{/}">Home</a>

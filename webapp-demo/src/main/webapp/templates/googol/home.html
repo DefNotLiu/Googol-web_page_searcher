@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Googol: Definitely not google</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        img {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <img th:src="@{/R2.png}" style="width:35%;">
+
+    <a href="details.html" th:href="@{/create-user}">Register</a>
+
+    <a href="details.html" th:href="@{/login}">Login</a>
+
+    <a href="details.html" th:href="@{search}">Search</a>
+    
+    <a href="details.html" th:href="${completeurl}">thrice</a>
+
+    <a href="details.html" th:href="@{/googol/home.html}">Home page</a>
+
+    <a href="details.html" th:href="@{/greeting(name=${thename})}">greeting</a>
+</body>
+</html>

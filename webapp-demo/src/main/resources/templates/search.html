@@ -1,0 +1,8 @@
+<!--https://www.baeldung.com/thymeleaf-iteration-->
+
+<form th:action="@{/saveSearch}" method="post">
+    <label for="query">Query:</label>
+    <input type="text" id="query" name="query" th:value="${query}" />
+
+    <button type="submit">Search</button>
+</form>

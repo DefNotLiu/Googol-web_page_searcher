@@ -1,0 +1,4 @@
+Executa-se o searcModule, o barrel e o downloader, respetivamente. 
+Depois basta iniciar o cliente ou o cliente web(correr na diretoria webapp-demo a instrução ./mvnw spring-boot:run).
+É preciso ter atenção ao endereço do IP do rmi, dado que este é atribuído a partir do nome e da placa de rede
+da máquina. Basta alterar no ficheiro SearchModule na linha 98 para o nome da máquina local e na linha 106 escolher o índice da rede indicada.
